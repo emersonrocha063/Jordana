@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Jordana 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6e6, #fff0f5);
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #d6336c;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff1493;
+    }
+
+    .message {
+      margin-top: 30px;
+      font-size: 1.8em;
+      color: #b30059;
+      display: none;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes heartBurst {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1.5); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2em;
+      animation: heartBurst 1s ease-out forwards;
+      pointer-events: none;
+      color: #ff3366;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Clique aqui, Jordana 💕</h1>
+    <button onclick="mostrarAmor()">Ver Surpresa</button>
+    <div class="message" id="mensagem">Você é o meu coração batendo fora do peito. Te amo! 💖</div>
+  </div>
+
+  <script>
+    function mostrarAmor() {
+      document.getElementById('mensagem').style.display = 'block';
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.textContent = '❤️';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = Math.random() * window.innerHeight + 'px';
+        heart.style.animationDuration = (Math.random() * 1 + 1) + 's';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
